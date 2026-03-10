@@ -6,10 +6,10 @@ import { constructionServices } from "@/data/constructionServices";
 import FishCard from "@/components/FishCard";
 
 const countries = [
-  { name: "Thailand", flag: "🇹🇭" },
-  { name: "India", flag: "🇮🇳" },
-  { name: "China", flag: "🇨🇳" },
-  { name: "Japan", flag: "🇯🇵" },
+  { name: "Khulna", flag: "🇹🇭" },
+  { name: "Cox's Bazar", flag: "🇮🇳" },
+  { name: "Chittagong", flag: "🇨🇳" },
+  { name: "Chandpur", flag: "🇯🇵" },
   { name: "Other Markets", flag: "🌍" },
 ];
 
@@ -33,7 +33,7 @@ const Index = () => {
               <span className="text-ocean-light">Construction Solutions</span>
             </h1>
             <p className="text-lg text-background/80 mb-8 max-w-lg animate-fade-up-delay-2">
-              Importing the finest seafood from around the world while delivering excellence in construction services.
+              Exporting the finest seafood from around the world while delivering excellence in construction services.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up-delay-3">
               <Link

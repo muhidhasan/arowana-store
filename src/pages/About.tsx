@@ -15,10 +15,10 @@ const About = () => {
         <section className="max-w-3xl mx-auto text-center">
           <h2 className="font-heading text-3xl font-bold text-foreground mb-6">Our Story</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Arowana International Limited is a diversified international business company with two core divisions: global fish import and distribution, and licensed construction services. Founded with a vision to connect the world's finest seafood markets with global consumers, we have grown into a trusted name in international trade.
+            Arowana International Limited is a diversified international business company with two core divisions: global fish export and distribution, and licensed construction services. Founded with a vision to connect the world's finest seafood markets with global consumers, we have grown into a trusted name in international trade.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Our fish import network spans across Thailand, India, China, Japan, and other major fishing nations. Through our Sea Land Fish Market e-commerce platform, we bring the freshest catches directly to businesses and consumers worldwide. Our construction division holds official licenses to operate projects of all scales, from residential homes to large infrastructure developments.
+            Our fish export network spans across Thailand, India, China, Japan, and other major fishing nations. Through our Sea Land Fish Market e-commerce platform, we bring the freshest catches directly to businesses and consumers worldwide. Our construction division holds official licenses to operate projects of all scales, from residential homes to large infrastructure developments.
           </p>
         </section>
 
@@ -26,7 +26,7 @@ const About = () => {
         <section>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Globe, title: "Global Network", desc: "Import partnerships spanning five major fishing nations and growing." },
+              { icon: Globe, title: "Global Network", desc: "Export partnerships spanning five major fishing nations and growing." },
               { icon: Shield, title: "Licensed Operations", desc: "Officially licensed for construction works at every project scale." },
               { icon: Award, title: "Quality Assurance", desc: "Rigorous quality standards for every product and project we deliver." },
               { icon: Users, title: "Expert Teams", desc: "Experienced professionals in both seafood trade and construction." },

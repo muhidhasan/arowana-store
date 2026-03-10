@@ -25,7 +25,7 @@ const Market = () => {
       <div className="ocean-gradient section-padding pb-12">
         <div className="container-max text-center">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-3">Sea Land Fish Market</h1>
-          <p className="text-primary-foreground/80 max-w-lg mx-auto">Fresh seafood imported from the world's finest fishing markets. Order online for delivery.</p>
+          <p className="text-primary-foreground/80 max-w-lg mx-auto">Fresh seafood exported tothe world's finest fishing markets. Order online for delivery.</p>
         </div>
       </div>
 
@@ -52,7 +52,7 @@ const Market = () => {
               className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-sm focus:ring-2 focus:ring-ring focus:outline-none"
             >
               {countries.map((c) => (
-                <option key={c} value={c}>{c === "All" ? "All Countries" : c}</option>
+                <option key={c} value={c}>{c === "All" ? "Location" : c}</option>
               ))}
             </select>
             <select
