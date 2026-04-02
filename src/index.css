@@ -15,16 +15,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 40% 11%;
 
-    --primary: 205 78% 40%;
+    --primary: 160 45% 28%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 205 30% 93%;
-    --secondary-foreground: 205 78% 30%;
+    --secondary: 210 30% 93%;
+    --secondary-foreground: 160 45% 22%;
 
     --muted: 210 20% 95%;
     --muted-foreground: 210 15% 46%;
 
-    --accent: 195 85% 42%;
+    --accent: 205 70% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,13 +32,16 @@
 
     --border: 210 20% 90%;
     --input: 210 20% 90%;
-    --ring: 205 78% 40%;
+    --ring: 160 45% 28%;
 
     --radius: 0.75rem;
 
+    --forest-deep: 160 50% 15%;
+    --forest-mid: 160 45% 28%;
+    --forest-light: 160 35% 45%;
     --ocean-deep: 210 60% 18%;
-    --ocean-mid: 205 78% 40%;
-    --ocean-light: 195 85% 55%;
+    --ocean-mid: 205 70% 45%;
+    --ocean-light: 205 65% 55%;
     --ocean-foam: 195 60% 95%;
     --sand: 38 40% 92%;
     --coral: 12 80% 60%;
@@ -63,19 +66,19 @@
     --card-foreground: 210 20% 95%;
     --popover: 210 40% 9%;
     --popover-foreground: 210 20% 95%;
-    --primary: 205 78% 50%;
+    --primary: 160 45% 38%;
     --primary-foreground: 0 0% 100%;
     --secondary: 210 30% 16%;
-    --secondary-foreground: 205 50% 80%;
+    --secondary-foreground: 160 40% 70%;
     --muted: 210 30% 16%;
     --muted-foreground: 210 15% 60%;
-    --accent: 195 85% 50%;
+    --accent: 205 70% 50%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 210 30% 18%;
     --input: 210 30% 18%;
-    --ring: 205 78% 50%;
+    --ring: 160 45% 38%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,14 +104,26 @@
 }
 
 @layer utilities {
+  .brand-gradient {
+    background: linear-gradient(135deg, hsl(160 50% 15%) 0%, hsl(160 45% 28%) 40%, hsl(205 70% 45%) 100%);
+  }
+  .brand-gradient-light {
+    background: linear-gradient(135deg, hsl(160 30% 95%) 0%, hsl(205 40% 95%) 100%);
+  }
   .ocean-gradient {
-    background: linear-gradient(135deg, hsl(210 60% 18%) 0%, hsl(205 78% 40%) 50%, hsl(195 85% 55%) 100%);
+    background: linear-gradient(135deg, hsl(160 50% 15%) 0%, hsl(160 45% 28%) 40%, hsl(205 70% 45%) 100%);
   }
   .ocean-gradient-light {
-    background: linear-gradient(135deg, hsl(195 60% 95%) 0%, hsl(205 30% 93%) 100%);
+    background: linear-gradient(135deg, hsl(160 30% 95%) 0%, hsl(205 40% 95%) 100%);
+  }
+  .text-gradient-brand {
+    background: linear-gradient(135deg, hsl(160 45% 28%), hsl(205 70% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   .text-gradient-ocean {
-    background: linear-gradient(135deg, hsl(205 78% 40%), hsl(195 85% 55%));
+    background: linear-gradient(135deg, hsl(160 45% 28%), hsl(205 70% 45%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -118,7 +133,7 @@
   }
   .hover-lift:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px -12px hsl(205 78% 40% / 0.2);
+    box-shadow: 0 20px 40px -12px hsl(160 45% 28% / 0.2);
   }
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out forwards;

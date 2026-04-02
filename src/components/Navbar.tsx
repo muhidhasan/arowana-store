@@ -1,21 +1,32 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ShoppingCart } from "lucide-react";
-import { useCart } from "@/contexts/CartContext";
+import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "Sea Land Market", path: "/market" },
-  { label: "Construction", path: "/construction" },
+  {
+    label: "Services",
+    children: [
+      { label: "Fish Export", path: "/services/fish-export" },
+      { label: "Construction", path: "/services/construction" },
+    ],
+  },
+  { label: "Products", path: "/products" },
+  { label: "Projects", path: "/projects" },
   { label: "About Us", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
-  const { totalItems } = useCart();
+
+  const isActive = (path: string) => location.pathname === path;
+  const isServiceActive = navLinks
+    .find((l) => l.label === "Services")
+    ?.children?.some((c) => location.pathname === c.path);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
@@ -30,29 +41,49 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === link.path
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.children ? (
+                <div key={link.label} className="relative group">
+                  <button
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${
+                      isServiceActive ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {link.label} <ChevronDown className="w-3.5 h-3.5" />
+                  </button>
+                  <div className="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <div className="bg-card border border-border rounded-lg shadow-lg py-1 min-w-[180px]">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.path}
+                          to={child.path}
+                          className={`block px-4 py-2.5 text-sm transition-colors ${
+                            isActive(child.path) ? "bg-primary/10 text-primary font-medium" : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path!}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isActive(link.path!) ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
           <div className="flex items-center gap-3">
-            <Link to="/cart" className="relative p-2 rounded-lg hover:bg-muted transition-colors">
-              <ShoppingCart className="w-5 h-5 text-foreground" />
-              {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-coral text-primary-foreground text-[10px] font-bold rounded-full flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
+            <Link to="/contact" className="hidden lg:inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+              Get Quote
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -67,20 +98,45 @@ const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden bg-card border-t border-border">
           <div className="px-4 py-3 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === link.path
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.children ? (
+                <div key={link.label}>
+                  <button
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted"
+                  >
+                    {link.label} <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {servicesOpen && (
+                    <div className="pl-4 space-y-1">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.path}
+                          to={child.path}
+                          onClick={() => setIsOpen(false)}
+                          className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                            isActive(child.path) ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path!}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                    isActive(link.path!) ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       )}
