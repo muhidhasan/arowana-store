@@ -51,6 +51,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "forest-deep": "hsl(var(--forest-deep))",
+        "forest-mid": "hsl(var(--forest-mid))",
+        "forest-light": "hsl(var(--forest-light))",
         ocean: {
           deep: "hsl(var(--ocean-deep))",
           mid: "hsl(var(--ocean-mid))",
@@ -91,5 +94,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

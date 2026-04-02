@@ -4,7 +4,7 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="ocean-gradient text-primary-foreground">
+    <footer className="brand-gradient text-primary-foreground">
       <div className="container-max section-padding pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
@@ -16,7 +16,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm opacity-80 leading-relaxed">
-              Global fish import and construction solutions. Bringing the finest seafood from around the world while building tomorrow's infrastructure.
+              Global fish export and construction solutions. Connecting Bangladesh's finest aquatic species to international markets while building quality infrastructure.
             </p>
           </div>
 
@@ -25,8 +25,10 @@ const Footer = () => {
             <ul className="space-y-2">
               {[
                 { label: "Home", path: "/" },
-                { label: "Sea Land Market", path: "/market" },
-                { label: "Construction", path: "/construction" },
+                { label: "Fish Export", path: "/services/fish-export" },
+                { label: "Construction", path: "/services/construction" },
+                { label: "Products", path: "/products" },
+                { label: "Projects", path: "/projects" },
                 { label: "About Us", path: "/about" },
                 { label: "Contact", path: "/contact" },
               ].map((link) => (
@@ -43,10 +45,10 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-lg mb-4">Our Services</h4>
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-sm opacity-80">
-                <Fish className="w-4 h-4" /> Sea Land Fish Market
+                <Fish className="w-4 h-4" /> Fish Export & Import
               </li>
               <li className="flex items-center gap-2 text-sm opacity-80">
-                <Building2 className="w-4 h-4" /> Construction Services
+                <Building2 className="w-4 h-4" /> Construction Solutions
               </li>
             </ul>
           </div>
@@ -56,7 +58,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm opacity-80">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                123 Business Avenue, International Trade Center
+                123 Business Avenue, Dhaka, Bangladesh
               </li>
               <li className="flex items-center gap-2 text-sm opacity-80">
                 <Mail className="w-4 h-4 shrink-0" />
@@ -64,7 +66,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-sm opacity-80">
                 <Phone className="w-4 h-4 shrink-0" />
-                +1 (555) 123-4567
+                +880 1XXX-XXXXXX
               </li>
             </ul>
           </div>

@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone, Clock, Send } from "lucide-react";
+import { MapPin, Mail, Phone, Clock, Send, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const Contact = () => {
@@ -10,10 +10,10 @@ const Contact = () => {
 
   return (
     <div className="pt-16 lg:pt-20 min-h-screen">
-      <div className="ocean-gradient section-padding pb-12">
+      <div className="brand-gradient section-padding pb-12">
         <div className="container-max text-center">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-3">Contact Us</h1>
-          <p className="text-primary-foreground/80 max-w-lg mx-auto">Get in touch for business inquiries, orders, or project consultations.</p>
+          <p className="text-primary-foreground/80 max-w-lg mx-auto">Get in touch for business inquiries, fish export orders, or construction quotes.</p>
         </div>
       </div>
 
@@ -24,13 +24,13 @@ const Contact = () => {
             <h2 className="font-heading text-2xl font-bold text-foreground">Get in Touch</h2>
             <div className="space-y-4">
               {[
-                { icon: MapPin, label: "Office Address", value: "123 Business Avenue, International Trade Center, Suite 500" },
+                { icon: MapPin, label: "Office Address", value: "123 Business Avenue, International Trade Center, Dhaka, Bangladesh" },
                 { icon: Mail, label: "Email", value: "info@arowanaintl.com" },
-                { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-                { icon: Clock, label: "Business Hours", value: "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 2:00 PM" },
+                { icon: Phone, label: "Phone", value: "+880 1XXX-XXXXXX" },
+                { icon: Clock, label: "Business Hours", value: "Saturday - Thursday: 9:00 AM - 6:00 PM\nFriday: Closed" },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-4 bg-card border border-border rounded-xl p-4">
-                  <div className="w-10 h-10 rounded-lg ocean-gradient flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg brand-gradient flex items-center justify-center shrink-0">
                     <item.icon className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
@@ -41,10 +41,21 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Map placeholder */}
+            {/* WhatsApp Button */}
+            <a
+              href="https://wa.me/15551234567"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[hsl(142_70%_45%)] text-white rounded-xl px-6 py-4 font-semibold hover:opacity-90 transition-opacity"
+            >
+              <MessageCircle className="w-6 h-6" />
+              Chat with us on WhatsApp
+            </a>
+
+            {/* Map */}
             <div className="bg-muted rounded-xl overflow-hidden aspect-video">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059353029!2d-74.25987!3d40.6976701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233668.38703692528!2d90.27487824045988!3d23.780573258035957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563962e3b1dcc!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -71,7 +82,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5">Phone</label>
-                  <input type="tel" placeholder="+1 (555) 000-0000" className="w-full px-4 py-3 bg-background border border-border rounded-lg text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
+                  <input type="tel" placeholder="+880 1XXX-XXXXXX" className="w-full px-4 py-3 bg-background border border-border rounded-lg text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5">Message</label>
